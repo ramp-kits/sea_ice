@@ -1,5 +1,4 @@
 import numpy as np
-import xarray as xr
 
 
 class FeatureExtractor(object):
@@ -8,8 +7,11 @@ class FeatureExtractor(object):
         pass
 
     def transform(self, X_ds):
-        """Compute the vector of input variables at time t. Spatial variables will
-        be averaged along lat and lon coordinates."""
+        """Compute the vector of input variables at time t.
+
+        Spatial variables will
+        be averaged along lat and lon coordinates.
+        """
         # This is the range for which features should be provided. Strip
         # the burn-in from the beginning and the prediction look-ahead from
         # the end.

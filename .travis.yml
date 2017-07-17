@@ -20,7 +20,7 @@ install:
     - cd ..
 script:
     - flake8 *.py submissions/*/*.py
-    - jupyter nbconvert --execute el_nino_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL --ExecutePreprocessor.timeout=600
+    - jupyter nbconvert --execute sea_ice_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL --ExecutePreprocessor.timeout=600
     - ramp_test_submission --submission whole_fields
     - ramp_test_submission --submission mean_ten
     - ramp_test_submission --submission monthly_means
