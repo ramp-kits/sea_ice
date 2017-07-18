@@ -8,6 +8,9 @@ before_install:
     - ./miniconda.sh -b -p /home/travis/miniconda
     - export PATH=/home/travis/miniconda/bin:$PATH
     - conda update --yes --quiet conda
+    - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+    - sudo apt-get install git-lfs
+    - git lfs init
 install:
     - conda create -n testenv --yes pip python=$PYTHON_VERSION
     - source activate testenv
@@ -18,8 +21,6 @@ install:
     - python setup.py install
     - cd ..
 script:
-    - ls -la data
-    - less data/train.nc
     - flake8 *.py submissions/*/*.py
     - jupyter nbconvert --execute sea_ice_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL --ExecutePreprocessor.timeout=600
     - ramp_test_submission --submission whole_fields
