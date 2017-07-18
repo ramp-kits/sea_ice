@@ -19,6 +19,7 @@ install:
     - cd ..
 script:
     - ls -la data
+    - less data/train.nc
     - flake8 *.py submissions/*/*.py
     - jupyter nbconvert --execute sea_ice_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL --ExecutePreprocessor.timeout=600
     - ramp_test_submission --submission whole_fields
