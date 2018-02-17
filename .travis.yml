@@ -12,11 +12,12 @@ install:
     - conda create -n testenv --yes pip python=$PYTHON_VERSION
     - source activate testenv
     - pip install -q flake8
-    - conda install --yes --quiet basemap
+    - pip install -r requirements.txt
     - git clone https://github.com/paris-saclay-cds/ramp-workflow.git
     - cd ramp-workflow
-    - python setup.py install
-    - source install_requirements.sh
+    - pip install -r requirements.txt
+    - pip install -r testing-requirements.txt
+    - pip install .
     - cd ..
 script:
     - flake8 *.py submissions/*/*.py
@@ -27,4 +28,3 @@ script:
     - ramp_test_submission --submission monthly_means
 notifications:
   email: true
- 
