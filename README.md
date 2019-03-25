@@ -1,4 +1,4 @@
-# RAMP starting kit on the drug spectra dataset
+# RAMP starting kit on the sea ice dataset
 
 Authors: Balazs Kegl
 
